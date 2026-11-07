@@ -1,0 +1,224 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrustVault - Admin Permissions</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #fff0f5, #ffe0eb);
+            color: #70203f;
+        }
+
+        header {
+            background: linear-gradient(100deg, #a51e55, #d94b83);
+            color: white;
+            padding: 22px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        header p {
+            margin-top: 5px;
+            font-size: 14px;
+            color: #ffeaf2;
+        }
+
+        .back {
+            background: white;
+            color: #a51e55;
+            text-decoration: none;
+            padding: 11px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .main {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        h1 {
+            color: #a51e55;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #956477;
+            margin-bottom: 30px;
+        }
+
+        .container {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 6px 20px rgba(150,40,85,0.09);
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 600px;
+        }
+
+        th {
+            background: #a51e55;
+            color: white;
+            padding: 15px;
+            text-align: left;
+        }
+
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #f6ccda;
+            color: #70203f;
+        }
+
+        tr:hover {
+            background: #fff5f8;
+        }
+
+        .permission {
+            background: #ffe0eb;
+            color: #a51e55;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+
+        .empty {
+            text-align: center;
+            padding: 25px;
+            color: #956477;
+        }
+
+        .notice {
+            background: white;
+            margin-top: 25px;
+            padding: 20px;
+            border-left: 5px solid #d94b83;
+            border-radius: 10px;
+        }
+
+        .notice h3 {
+            color: #a51e55;
+            margin-bottom: 8px;
+        }
+
+        .notice p {
+            color: #896b78;
+            line-height: 1.6;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #956477;
+            font-size: 13px;
+        }
+
+        @media(max-width: 700px) {
+            header {
+                padding: 20px;
+                gap: 15px;
+                flex-wrap: wrap;
+            }
+
+            h1 {
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div>
+        <div class="logo">🛡️ TrustVault</div>
+        <p>Admin Permission Management</p>
+    </div>
+
+    <a href="/admin" class="back">← Dashboard</a>
+</header>
+
+<div class="main">
+
+    <h1>🔐 Manage Permissions</h1>
+    <p class="subtitle">
+        View document access permissions assigned to viewers.
+    </p>
+
+    <div class="container">
+
+        <table>
+            <tr>
+                <th>Document ID</th>
+                <th>Owner</th>
+                <th>Viewer</th>
+                <th>Permission</th>
+            </tr>
+
+            {% if permissions %}
+                {% for permission in permissions %}
+                <tr>
+                    <td>{{ permission[0] }}</td>
+                    <td>{{ permission[1] }}</td>
+                    <td>{{ permission[2] }}</td>
+                    <td>
+                        <a href="/admin_view_document/{{ permission[0] }}"
+                            class="permission"
+                            target="_blank">
+                                {{ permission[3] }}
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="4" class="empty">
+                        No permissions assigned yet.
+                    </td>
+                </tr>
+            {% endif %}
+        </table>
+
+    </div>
+
+    <div class="notice">
+        <h3>🛡️ Security Information</h3>
+        <p>
+            Admin can monitor document access permissions.
+            Only authorized viewers should be able to access
+            shared documents.
+        </p>
+    </div>
+
+</div>
+
+<footer>
+    © 2026 TrustVault. All Rights Reserved.
+    <br><br>
+    Secure • Share • Trust
+</footer>
+
+</body>
+</html>

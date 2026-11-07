@@ -1,0 +1,165 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrustVault - My Shared Documents</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #fffbea;
+            color: #333;
+            min-height: 100vh;
+        }
+
+        header {
+            background: linear-gradient(100deg, #e6b800, #ffdf4d);
+            color: #3d3100;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 3px 10px #0002;
+        }
+
+        header h1 {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 45px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px #00000012;
+        }
+
+        h2 {
+            color: #c49b00;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 25px;
+        }
+
+        th {
+            background: #fff4b8;
+            color: #705900;
+            padding: 15px;
+            text-align: left;
+        }
+
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #f1e9c9;
+        }
+
+        tr:hover {
+            background: #fffdf3;
+        }
+
+        .download {
+            background: #e6b800;
+            color: #302600;
+            padding: 9px 16px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        .download:hover {
+            background: #cca300;
+        }
+
+        .back {
+            display: inline-block;
+            background: #e6b800;
+            color: #302600;
+            padding: 12px 20px;
+            text-decoration: none;
+            border-radius: 7px;
+            font-weight: bold;
+        }
+
+        .back:hover {
+            background: #cca300;
+        }
+
+        .empty {
+            text-align: center;
+            padding: 25px;
+            color: #777;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                margin: 20px 10px;
+                padding: 15px;
+                overflow-x: auto;
+            }
+
+            table {
+                min-width: 600px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>🛡️ TrustVault</h1>
+    <p>Secure Document Sharing System</p>
+</header>
+
+<div class="container">
+
+    <h2>📁 My Shared Documents</h2>
+
+    <table>
+        <tr>
+            <th>Document ID</th>
+            <th>Document Name</th>
+            <th>Owner</th>
+            <th>Download</th>
+        </tr>
+
+        {% for doc in documents %}
+        <tr>
+            <td>{{ doc[0] }}</td>
+            <td>{{ doc[1] }}</td>
+            <td>{{ doc[2] }}</td>
+            <td>
+                <a class="download"
+                   href="{{ url_for('viewer_download', document_id=doc[0]) }}">
+                    Download
+                </a>
+            </td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="4" class="empty">
+                No documents shared with you.
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <a href="/viewer" class="back">← Back to Viewer Dashboard</a>
+
+</div>
+
+</body>
+</html>

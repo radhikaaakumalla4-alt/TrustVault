@@ -1,0 +1,158 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrustVault - Viewer Dashboard</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f0fff4;
+            color: #263b2d;
+            min-height: 100vh;
+        }
+
+        header {
+            background: linear-gradient(100deg, #087a45, #39b879);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 3px 10px #0002;
+        }
+
+        header h1 {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 60px auto;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .welcome {
+            margin-bottom: 35px;
+        }
+
+        .welcome h2 {
+            color: #087a45;
+            font-size: 27px;
+            margin-bottom: 10px;
+        }
+
+        .welcome p {
+            color: #6b7d70;
+        }
+
+        .card {
+            background: white;
+            max-width: 350px;
+            margin: auto;
+            padding: 35px 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px #00000012;
+            border-top: 5px solid #16a05a;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 25px #00000020;
+        }
+
+        .icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            color: #087a45;
+            margin-bottom: 12px;
+            font-size: 21px;
+        }
+
+        .card p {
+            color: #6b7d70;
+            margin-bottom: 22px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #16a05a;
+            color: white;
+            padding: 12px 22px;
+            text-decoration: none;
+            border-radius: 7px;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background: #087a45;
+        }
+
+        .logout {
+            display: inline-block;
+            margin-top: 35px;
+            background: #263b2d;
+            color: white;
+            padding: 12px 28px;
+            text-decoration: none;
+            border-radius: 7px;
+        }
+
+        .logout:hover {
+            background: #14251a;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #6b7d70;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>🛡️ TrustVault</h1>
+    <p>Secure Document Sharing System</p>
+</header>
+
+<div class="container">
+
+    <div class="welcome">
+        <h2>Welcome, Viewer!</h2>
+        <p>Access your securely shared documents</p>
+    </div>
+
+    <div class="card">
+        <div class="icon">📁</div>
+        <h3>My Shared Documents</h3>
+        <p>View and download documents shared with you.</p>
+        <a href="/viewer_documents" class="btn">
+            View Documents
+        </a>
+    </div>
+
+    <a href="/logout" class="logout">Logout</a>
+
+</div>
+
+<footer>
+    © 2026 TrustVault. All Rights Reserved.
+</footer>
+
+</body>
+</html>

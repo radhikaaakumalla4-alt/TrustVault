@@ -1,0 +1,219 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TrustVault - Manage Users</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #eaf4ff, #c8e2ff);
+            min-height: 100vh;
+            color: #102f59;
+        }
+
+        header {
+            background: linear-gradient(100deg, #06366f, #0875d1);
+            color: white;
+            padding: 22px 35px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            margin-left: 25px;
+            padding-left: 25px;
+            border-left: 2px solid white;
+            font-size: 27px;
+        }
+
+        .admin {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .container {
+            background: white;
+            margin: 30px;
+            padding: 30px 25px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 70, 150, 0.12);
+        }
+
+        h2 {
+            font-size: 32px;
+            margin-bottom: 25px;
+            color: #103765;
+        }
+
+        .add-btn {
+            display: inline-block;
+            background: #0875df;
+            color: white;
+            padding: 15px 28px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .add-btn:hover {
+            background: #0056b3;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            border: 1px solid #d5e1ef;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        th {
+            background: linear-gradient(100deg, #06417e, #0875d1);
+            color: white;
+            padding: 18px;
+            font-size: 21px;
+        }
+
+        td {
+            padding: 15px;
+            font-size: 19px;
+            border-bottom: 1px solid #d5e1ef;
+            text-align: left;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .protected {
+            background: #e1efff;
+            color: #0865bd;
+            padding: 12px 18px;
+            border-radius: 9px;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        .delete-btn {
+            background: #e52222;
+            color: white;
+            border: none;
+            padding: 12px 22px;
+            border-radius: 9px;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .delete-btn:hover {
+            background: #b90000;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 14px 22px;
+            border: 1px solid #1680ef;
+            border-radius: 9px;
+            color: #0865bd;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .back-btn:hover {
+            background: #eaf4ff;
+        }
+
+        @media (max-width: 700px) {
+            .container {
+                margin: 12px;
+                padding: 15px;
+                overflow-x: auto;
+            }
+
+            header {
+                padding: 18px;
+            }
+
+            table {
+                min-width: 600px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">
+        🛡️ TrustVault
+        <span>Manage Users</span>
+    </div>
+
+    <div class="admin">👤 Admin</div>
+</header>
+
+<div class="container">
+
+    <h2>👥 All Registered Users</h2>
+
+    <a href="/add_user" class="add-btn">＋ Add New User</a>
+
+    <table>
+        <tr>
+            <th>User ID</th>
+            <th>Username</th>
+            <th>Role</th>
+            <th>Action</th>
+        </tr>
+
+        {% for user in users %}
+        <tr>
+            <td>{{ user[0] }}</td>
+            <td>{{ user[1] }}</td>
+            <td>{{ user[2] }}</td>
+
+            <td>
+                {% if user[2] == 'admin' %}
+                    <span class="protected">🛡 Protected</span>
+                {% else %}
+                    <form action="/delete_user/{{ user[0] }}"
+                          method="POST"
+                          onsubmit="return confirm('Are you sure you want to delete this user?');">
+
+                        <button type="submit" class="delete-btn">
+                            🗑 Delete
+                        </button>
+
+                    </form>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+    <a href="/admin" class="back-btn">❮ Back to Admin Dashboard</a>
+
+</div>
+
+</body>
+</html>
+

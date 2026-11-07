@@ -1,0 +1,135 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TrustVault - Upload Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f3e8ff, #e4d5ff);
+            min-height: 100vh;
+            color: #30204d;
+        }
+
+        header {
+            background: linear-gradient(100deg, #4b0082, #8a2be2);
+            color: white;
+            padding: 22px 35px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 30px;
+            color: white;
+        }
+
+        .container {
+            background: white;
+            max-width: 650px;
+            margin: 60px auto;
+            padding: 40px;
+            border-radius: 18px;
+            box-shadow: 0 8px 25px rgba(75, 0, 130, 0.15);
+            text-align: center;
+        }
+
+        h2 {
+            color: #4b0082;
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .description {
+            color: #655477;
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+
+        input[type="file"] {
+            width: 100%;
+            padding: 18px;
+            border: 2px dashed #a66be0;
+            border-radius: 10px;
+            background: #faf6ff;
+            color: #4b0082;
+            margin-bottom: 25px;
+        }
+
+        button {
+            background: linear-gradient(100deg, #4b0082, #8a2be2);
+            color: white;
+            border: none;
+            padding: 15px 35px;
+            border-radius: 9px;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #4b0082;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 13px 22px;
+            border: 1px solid #8a2be2;
+            border-radius: 9px;
+            color: #6a0dad;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .back-btn:hover {
+            background: #f3e8ff;
+        }
+
+        @media (max-width: 700px) {
+            .container {
+                margin: 25px 15px;
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>🛡️ TrustVault - Document Upload</h1>
+    </header>
+
+    <div class="container">
+
+        <h2>📤 Upload Your Document</h2>
+
+        <p class="description">
+            Upload your files securely to TrustVault
+        </p>
+
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+
+            <input type="file" name="file" required>
+
+            <br>
+
+            <button type="submit">Upload Document</button>
+
+        </form>
+
+        <a href="/owner" class="back-btn">
+            Back to Owner Dashboard
+        </a>
+
+    </div>
+
+</body>
+</html>

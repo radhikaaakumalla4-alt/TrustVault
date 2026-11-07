@@ -1,0 +1,222 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TrustVault - Manage Permissions</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f3e8ff, #e4d5ff);
+            min-height: 100vh;
+            color: #30204d;
+        }
+
+        header {
+            background: linear-gradient(100deg, #4b0082, #8a2be2);
+            color: white;
+            padding: 22px 35px;
+            text-align: center;
+        }
+
+        header h1 {
+            color: white;
+            font-size: 30px;
+        }
+
+        .container {
+            max-width: 850px;
+            background: white;
+            margin: 35px auto;
+            padding: 35px;
+            border-radius: 18px;
+            box-shadow: 0 8px 25px rgba(75, 0, 130, 0.15);
+        }
+
+        h2 {
+            color: #4b0082;
+            font-size: 25px;
+            margin-bottom: 25px;
+        }
+
+        .section {
+            background: #faf6ff;
+            border: 1px solid #e6d5ff;
+            border-radius: 13px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            color: #4b0082;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        select, input {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #c9a8eb;
+            border-radius: 8px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            background: white;
+        }
+
+        select:focus, input:focus {
+            outline: none;
+            border: 2px solid #8a2be2;
+        }
+
+        button {
+            background: linear-gradient(100deg, #4b0082, #8a2be2);
+            color: white;
+            border: none;
+            padding: 14px 25px;
+            border-radius: 9px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #4b0082;
+        }
+
+        .revoke-btn {
+            background: linear-gradient(100deg, #b42345, #e04467);
+        }
+
+        .revoke-btn:hover {
+            background: #941b37;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 13px 22px;
+            border: 1px solid #8a2be2;
+            border-radius: 9px;
+            color: #6a0dad;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .back-btn:hover {
+            background: #f3e8ff;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #e6d5ff;
+            margin: 30px 0;
+        }
+
+        @media (max-width: 700px) {
+            .container {
+                margin: 15px;
+                padding: 20px;
+            }
+
+            header {
+                padding: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>🛡️ TrustVault - Manage Permissions</h1>
+    </header>
+
+    <div class="container">
+
+        
+        
+
+        <div class="section">
+
+            <h2>🔒 Revoke Document Permission</h2>
+
+            <form action="/revoke_permission" method="POST">
+
+                <label>Select Document:</label>
+
+                <select name="document_id" required>
+                    {% for doc in documents %}
+                    <option value="{{ doc[0] }}">
+                        {{ doc[1] }}
+                    </option>
+                    {% endfor %}
+                </select>
+
+                <label>Viewer Username:</label>
+
+                <input type="text"
+                       name="viewer_username"
+                       placeholder="Enter viewer username"
+                       required>
+
+                <button type="submit" class="revoke-btn">
+                    Revoke Permission
+                </button>
+
+            </form>
+
+        </div>
+        
+        <hr>
+
+        <div class="section">
+
+            <h2>📋 Existing Document Permissions</h2>
+
+            {% if permissions %}
+
+            <table border="1" cellpadding="10" cellspacing="0"
+                width="100%">
+
+                <tr>
+                    <th>Document ID</th>
+                    <th>Document Name</th>
+                    <th>Viewer Username</th>
+                    <th>Permission</th>
+                </tr>
+
+                {% for permission in permissions %}
+                <tr>
+                    <td>{{ permission[0] }}</td>
+                    <td>{{ permission[1] }}</td>
+                    <td>{{ permission[2] }}</td>
+                    <td>{{ permission[3] }}</td>
+                </tr>
+                {% endfor %}
+
+            </table>
+
+            {% else %}
+
+            <p>No permissions assigned yet.</p>
+
+            {% endif %}
+
+    </div>
+
+
+        <a href="/owner" class="back-btn">
+            Back to Owner Dashboard
+        </a>
+
+    </div>
+
+</body>
+</html>

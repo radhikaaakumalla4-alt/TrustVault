@@ -1,0 +1,165 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TrustVault - Activity Logs</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #eaf4ff, #c8e2ff);
+            min-height: 100vh;
+            color: #102f59;
+        }
+
+        header {
+            background: linear-gradient(100deg, #06366f, #0875d1);
+            color: white;
+            padding: 22px 35px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            margin-left: 25px;
+            padding-left: 25px;
+            border-left: 2px solid white;
+            font-size: 27px;
+        }
+
+        .admin {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .container {
+            background: white;
+            margin: 30px;
+            padding: 30px 25px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 70, 150, 0.12);
+        }
+
+        h2 {
+            font-size: 32px;
+            margin-bottom: 25px;
+            color: #103765;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            border: 1px solid #d5e1ef;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        th {
+            background: linear-gradient(100deg, #06417e, #0875d1);
+            color: white;
+            padding: 18px;
+            font-size: 20px;
+            text-align: left;
+        }
+
+        td {
+            padding: 15px;
+            font-size: 18px;
+            border-bottom: 1px solid #d5e1ef;
+            text-align: left;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover {
+            background: #eaf4ff;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 14px 22px;
+            border: 1px solid #1680ef;
+            border-radius: 9px;
+            color: #0865bd;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .back-btn:hover {
+            background: #eaf4ff;
+        }
+
+        @media (max-width: 700px) {
+            .container {
+                margin: 12px;
+                padding: 15px;
+                overflow-x: auto;
+            }
+
+            header {
+                padding: 18px;
+            }
+
+            table {
+                min-width: 600px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            🛡️ TrustVault <span>Activity Logs</span>
+        </div>
+        <div class="admin">Admin</div>
+    </header>
+
+    <div class="container">
+
+        <h2>Activity Logs</h2>
+
+        <table>
+            <tr>
+                <th>Username</th>
+                <th>Document ID</th>
+                <th>Action</th>
+                <th>Date & Time</th>
+            </tr>
+
+            {% for log in logs %}
+            <tr>
+                <td>{{ log[0] }}</td>
+                <td>{{ log[1] }}</td>
+                <td>{{ log[2] }}</td>
+                <td>{{ log[3] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <a href="/admin" class="back-btn">
+            Back to Admin Dashboard
+        </a>
+
+    </div>
+
+</body>
+</html>

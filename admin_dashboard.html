@@ -1,0 +1,280 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TrustVault - Admin Dashboard</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #fff0f5, #ffe0eb);
+            color: #70203f;
+        }
+
+        /* HEADER */
+
+        header {
+            background: linear-gradient(100deg, #a51e55, #d94b83);
+            color: white;
+            padding: 22px 45px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(150, 40, 85, 0.15);
+        }
+
+        .logo {
+            font-size: 27px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            margin-right: 8px;
+        }
+
+        header p {
+            font-size: 14px;
+            margin-top: 5px;
+            color: #ffeaf2;
+        }
+
+        .logout {
+            text-decoration: none;
+            background: white;
+            color: #a51e55;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .logout:hover {
+            background: #ffe0eb;
+            transform: translateY(-2px);
+        }
+
+        /* MAIN CONTENT */
+
+        .main {
+            max-width: 1150px;
+            margin: 45px auto;
+            padding: 0 25px;
+        }
+
+        .welcome {
+            margin-bottom: 35px;
+        }
+
+        .welcome h1 {
+            font-size: 34px;
+            color: #a51e55;
+            margin-bottom: 10px;
+        }
+
+        .welcome p {
+            color: #956477;
+            font-size: 16px;
+        }
+
+        /* DASHBOARD CARDS */
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid #f6ccda;
+            box-shadow: 0 6px 20px rgba(150, 40, 85, 0.09);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 25px rgba(150, 40, 85, 0.15);
+        }
+
+        .icon {
+            font-size: 42px;
+            margin-bottom: 18px;
+        }
+
+        .card h2 {
+            color: #a51e55;
+            font-size: 22px;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: #896b78;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 22px;
+        }
+
+        .card a {
+            display: inline-block;
+            text-decoration: none;
+            background: linear-gradient(100deg, #b52b62, #e66b9a);
+            color: white;
+            padding: 12px 22px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .card a:hover {
+            background: #a51e55;
+        }
+
+        /* SECURITY SECTION */
+
+        .security {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #d94b83;
+            box-shadow: 0 5px 18px rgba(150, 40, 85, 0.08);
+            margin-top: 30px;
+        }
+
+        .security h3 {
+            color: #a51e55;
+            margin-bottom: 10px;
+        }
+
+        .security p {
+            color: #896b78;
+            line-height: 1.6;
+        }
+
+        footer {
+            text-align: center;
+            padding: 22px;
+            color: #956477;
+            font-size: 13px;
+        }
+
+        @media (max-width: 700px) {
+            header {
+                padding: 20px;
+                gap: 15px;
+                flex-wrap: wrap;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .welcome h1 {
+                font-size: 27px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <header>
+        <div>
+            <div class="logo">
+                <span>🛡️</span> TrustVault
+            </div>
+            <p>Secure Document Sharing System</p>
+        </div>
+
+        <a href="/logout" class="logout">Logout ↗</a>
+    </header>
+
+    <!-- MAIN CONTENT -->
+
+    <div class="main">
+
+        <div class="welcome">
+            <h1>Welcome, Admin!</h1>
+            <p>Manage users, documents and security activities.</p>
+        </div>
+
+        <!-- DASHBOARD CARDS -->
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="icon">👥</div>
+                <h2>Manage Users</h2>
+                <p>
+                    View registered users, add new users
+                    and manage user accounts.
+                </p>
+                <a href="/manage_users">Manage Users →</a>
+            </div>
+
+            <div class="card">
+                <div class="icon">📁</div>
+                <h2>Manage Documents</h2>
+                <p>
+                    View all uploaded documents
+                    and manage document records.
+                </p>
+                <a href="/admin_documents">Manage Documents →</a>
+            </div>
+
+            <div class="card">
+                <div class="icon">🔐</div>
+                <h2>Manage Permissions</h2>
+                <p>
+                    Review document access and
+                    permission management.
+                </p>
+                <a href="/admin_permissions">Manage Permissions →</a>
+            </div>
+
+            <div class="card">
+                <div class="icon">📊</div>
+                <h2>Activity Logs</h2>
+                <p>
+                    Monitor user activities,
+                    document downloads and security events.
+                </p>
+                <a href="/activity_logs">View Activity Logs →</a>
+            </div>
+
+        </div>
+
+        <!-- SECURITY MESSAGE -->
+
+        <div class="security">
+            <h3>🛡️ TrustVault Security Center</h3>
+            <p>
+                Monitor document activities and manage
+                registered users through the Admin Dashboard.
+                Keep your document sharing system secure.
+            </p>
+        </div>
+
+    </div>
+
+    <footer>
+        © 2026 TrustVault. All Rights Reserved.
+        <br><br>
+        Secure • Share • Trust
+    </footer>
+
+</body>
+</html>

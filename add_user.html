@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TrustVault - Add User</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <h1>TrustVault - Add New User</h1>
+
+    <form method="POST">
+
+        <label>Username:</label>
+        <input type="text" name="username" required>
+
+        <br><br>
+
+        <label>Password:</label>
+        <input type="password" name="password" required>
+
+        <br><br>
+
+        <label>Select Role:</label>
+
+        <select name="role" required>
+            <option value="owner">Owner</option>
+            <option value="viewer">Viewer</option>
+        </select>
+
+        <br><br>
+
+        <button type="submit">Add User</button>
+
+    </form>
+
+    <br>
+
+    <a href="/manage_users">Back to Manage Users</a>
+
+</body>
+</html>

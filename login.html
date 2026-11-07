@@ -1,0 +1,269 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TrustVault | Login</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background: linear-gradient(
+                135deg,
+                #eaf1fb,
+                #d4e2f5,
+                #b8cde9
+            );
+        }
+
+        .container {
+            width: 900px;
+            min-height: 520px;
+            display: flex;
+            background: white;
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: 0 15px 45px rgba(10, 35, 75, 0.18);
+        }
+
+        /* LEFT PANEL */
+
+        .left-panel {
+            width: 50%;
+            background: linear-gradient(
+                145deg,
+                #071b3a,
+                #123d70,
+                #24649c
+            );
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 35px;
+        }
+
+        .shield {
+            font-size: 85px;
+            margin-bottom: 20px;
+        }
+
+        .left-panel h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .left-panel p {
+            font-size: 15px;
+            line-height: 1.7;
+            color: #e0ecff;
+        }
+
+        /* RIGHT PANEL */
+
+        .right-panel {
+            width: 50%;
+            padding: 55px 45px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: white;
+        }
+
+        .right-panel h2 {
+            color: #102f59;
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #888;
+            margin-bottom: 35px;
+            font-size: 14px;
+        }
+
+        label {
+            display: block;
+            color: #153b6b;
+            font-weight: bold;
+            margin-bottom: 9px;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px;
+            margin-bottom: 23px;
+            border: 1px solid #c8d8ec;
+            border-radius: 9px;
+            outline: none;
+            font-size: 15px;
+            background: #fbfdff;
+        }
+
+        input:focus {
+            border-color: #24649c;
+            box-shadow: 0 0 6px #b7d1f1;
+        }
+
+        input::placeholder {
+            color: #aaa;
+        }
+
+        /* LOGIN BUTTON */
+
+        button {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 9px;
+            background: linear-gradient(
+                100deg,
+                #102f59,
+                #24649c
+            );
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #071b3a;
+            transform: translateY(-2px);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 28px;
+            color: #999;
+            font-size: 12px;
+        }
+
+        /* MOBILE RESPONSIVE */
+
+        @media (max-width: 650px) {
+
+            .container {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .left-panel,
+            .right-panel {
+                width: 100%;
+            }
+
+            .left-panel {
+                padding: 30px;
+            }
+
+            .shield {
+                font-size: 55px;
+            }
+
+            .left-panel h1 {
+                font-size: 28px;
+            }
+
+            .right-panel {
+                padding: 35px 25px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- LEFT SIDE -->
+
+        <div class="left-panel">
+
+            <div class="shield">🛡️</div>
+
+            <h1>TrustVault</h1>
+
+            <p>
+                Secure Document Sharing System
+
+                <br><br>
+
+                Your Documents. Your Control.
+
+                <br>
+
+                Safe, Secure and Trusted Access.
+            </p>
+
+        </div>
+
+        <!-- RIGHT SIDE -->
+
+        <div class="right-panel">
+
+            <h2>Welcome Back!</h2>
+
+            <p class="subtitle">
+                Login to access your secure account
+            </p>
+
+            <form action="/login" method="POST">
+
+                <label>Username</label>
+
+                <input
+                    type="text"
+                    name="username"
+                    placeholder="Enter your username"
+                    required
+                >
+
+                <label>Password</label>
+
+                <input
+                    type="password"
+                    name="password"
+                    placeholder="Enter your password"
+                    required
+                >
+
+                <button type="submit">
+                    Login Securely
+                </button>
+
+            </form>
+
+            <div class="footer">
+                © 2026 TrustVault. All Rights Reserved.
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

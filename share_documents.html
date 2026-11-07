@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TrustVault - Share Documents</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f3e8ff, #e4d5ff);
+            color: #30204d;
+            margin: 0;
+        }
+        header {
+            background: linear-gradient(100deg, #4b0082, #8a2be2);
+            color: white;
+            padding: 22px;
+            text-align: center;
+        }
+        .container {
+            max-width: 650px;
+            background: white;
+            margin: 45px auto;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px #4b008233;
+        }
+        h2 { color: #4b0082; }
+        label {
+            display: block;
+            margin: 15px 0 8px;
+            font-weight: bold;
+        }
+        select, input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #c9a8eb;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+        button {
+            margin-top: 20px;
+            padding: 13px 22px;
+            background: #6a0dad;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .back {
+            display: inline-block;
+            margin-top: 20px;
+            color: #6a0dad;
+        }
+        .message { color: green; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>🛡️ TrustVault - Share Documents</h1>
+</header>
+
+<div class="container">
+    <h2>🔗 Give Document Access to Viewer</h2>
+
+    {% if message %}
+        <p class="message">{{ message }}</p>
+    {% endif %}
+
+    <form method="POST">
+        <label>Select Document:</label>
+
+        <select name="document_id" required>
+            {% for doc in documents %}
+            <option value="{{ doc[0] }}">{{ doc[1] }}</option>
+            {% endfor %}
+        </select>
+
+        <label>Viewer Username:</label>
+
+        <input type="text"
+               name="viewer_username"
+               placeholder="Enter viewer username"
+               required>
+
+        <button type="submit">Give Permission</button>
+    </form>
+
+    <a class="back" href="/owner">Back to Owner Dashboard</a>
+</div>
+
+</body>
+</html>

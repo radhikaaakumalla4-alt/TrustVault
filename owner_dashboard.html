@@ -1,0 +1,202 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TrustVault - Owner Dashboard</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f3e8ff, #e4d5ff);
+            min-height: 100vh;
+            color: #30204d;
+        }
+
+        header {
+            background: linear-gradient(100deg, #4b0082, #8a2be2);
+            color: white;
+            padding: 22px 35px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            margin-left: 25px;
+            padding-left: 25px;
+            border-left: 2px solid white;
+            font-size: 27px;
+        }
+
+        .owner {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .container {
+            background: white;
+            margin: 30px;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(75, 0, 130, 0.12);
+        }
+
+        h2 {
+            font-size: 30px;
+            margin-bottom: 25px;
+            color: #4b0082;
+        }
+
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid #e6d5ff;
+            box-shadow: 0 5px 15px rgba(75, 0, 130, 0.10);
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(75, 0, 130, 0.18);
+        }
+
+        .card h3 {
+            color: #6a0dad;
+            font-size: 23px;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: #655477;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .card a {
+            color: #8a2be2;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .card a:hover {
+            color: #4b0082;
+        }
+
+        .logout {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .logout a {
+            display: inline-block;
+            background: #6a0dad;
+            color: white;
+            padding: 14px 30px;
+            border-radius: 9px;
+            text-decoration: none;
+            font-size: 17px;
+            font-weight: bold;
+        }
+
+        .logout a:hover {
+            background: #4b0082;
+        }
+
+        @media (max-width: 700px) {
+            header {
+                padding: 18px;
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .logo {
+                font-size: 23px;
+            }
+
+            .logo span {
+                font-size: 20px;
+                margin-left: 10px;
+                padding-left: 10px;
+            }
+
+            .container {
+                margin: 12px;
+                padding: 20px;
+            }
+
+            .card-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            🛡️ TrustVault <span>Owner</span>
+        </div>
+
+        <div class="owner">Document Owner</div>
+    </header>
+
+    <div class="container">
+
+        <h2>Welcome, Document Owner!</h2>
+
+        <div class="card-container">
+
+            <div class="card">
+                <h3>📤 Upload Documents</h3>
+                <p>Upload your files securely</p>
+                <a href="/upload">Upload Now</a>
+            </div>
+
+            <div class="card">
+                <h3>📁 My Documents</h3>
+                <p>View and manage your documents</p>
+                <a href="/my_documents">View Documents</a>
+            </div>
+
+            <div class="card">
+                <h3>🔗 Share Documents</h3>
+                <p>Give document access to viewers</p>
+                <a href="/share_documents">Share Documents</a>
+            </div>
+
+            <div class="card">
+                <h3>🔐 Manage Permissions</h3>
+                <p>Grant or revoke document access</p>
+                <a href="/manage_permissions">Manage Permissions</a>
+            </div>
+
+        </div>
+
+        <div class="logout">
+            <a href="/logout">Logout</a>
+        </div>
+
+    </div>
+
+</body>
+</html>
