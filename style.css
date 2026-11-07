@@ -1,0 +1,100 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f1f5f9;
+    color: #1e293b;
+}
+
+h1 {
+    color: #0f172a;
+    margin-bottom: 20px;
+}
+
+a {
+    color: #2563eb;
+    text-decoration: none;
+}
+
+button {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #1d4ed8;
+}
+
+input, select {
+    padding: 10px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+}
+
+table {
+    width: 95%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background: white;
+}
+
+th {
+    background: #0f172a;
+    color: white;
+}
+
+th, td {
+    padding: 13px;
+    border: 1px solid #e2e8f0;
+}
+
+.card {
+    display: inline-block;
+    background: white;
+    padding: 25px;
+    margin: 15px;
+    width: 250px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+}
+/* Admin Blue Theme */
+
+body.admin-page {
+    background: #eff6ff;
+}
+
+body.admin-page h1 {
+    color: #1e40af;
+    text-align: center;
+    margin-top: 30px;
+}
+
+body.admin-page h3 {
+    color: #1d4ed8;
+    margin: 20px;
+}
+
+body.admin-page table {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+body.admin-page th {
+    background: #1e40af;
+}
+
+body.admin-page button {
+    background: #2563eb;
+}
+
+body.admin-page button:hover {
+    background: #1e3a8a;
+}
