@@ -2,11 +2,15 @@
 from flask import Flask, render_template, request, redirect, session, send_from_directory, abort
 import sqlite3
 import os
+from database import create_database
+
+
 
 from werkzeug.security import check_password_hash,generate_password_hash
 from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
+create_database()
 app.secret_key = os.environ.get("SECRET_KEY") or os.urandom(32)
 app.config["UPLOAD_FOLDER"] = "uploads"
 app.config["MAX_CONTENT_LENGTH"] = 5 * 1024 * 1024
